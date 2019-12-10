@@ -4,7 +4,7 @@ import NumberButton from "./NumberButton.js";
 
 const Numbers = () => {
 
-  const [numberState, setNumberState] = useState(numbers);
+  const [numberState] = useState(numbers);
 
   return (
     <div>

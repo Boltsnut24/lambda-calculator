@@ -1,9 +1,10 @@
 import React from "react";
+import "../../../App.css";
 
 const SpecialButton = (props) => {
   return (
     <>
-      <button>{props.specialProp}</button>
+      <button className="special">{props.specialProp}</button>
     </>
   );
 };

@@ -20,3 +20,20 @@
     padding-right: 8%;
     font-size: 5.0rem;
   }
+  .operator-numbers{
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+  }
+
+  .number {
+    width: 30%;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .special {
+      width: 30%;
+      height: 100px;
+      border-radius: 50%
+  }
