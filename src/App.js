@@ -18,8 +18,12 @@ function App() {
     <div className="container">
       <Logo />
       <div className="App">
-        <Number />
-        <Operator />
+        <Display />
+        <div className="operator-numbers">
+          <Operator />
+          <Number />
+        </div>
+
         <Special />
       </div>
     </div>
