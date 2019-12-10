@@ -11,8 +11,8 @@ const Operators = () => {
   return (
     <div>
       {
-        operatorState.map(symbol => {
-          <OperatorButton />
+        operatorState.map((operator, index) => {
+          <OperatorButton operatorProp = {operator} key = {index}/>
         })
       }
     </div>

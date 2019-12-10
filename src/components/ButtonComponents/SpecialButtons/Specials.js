@@ -10,8 +10,8 @@ const Specials = () => {
   const [specialState, setSpecialState] = useState(specials)
   return (
     <div>
-      {specialState.map(symbol => {
-        <SpecialButton />
+      {specialState.map((symbol, index) => {
+        <SpecialButton specialProp = {symbol} key = {index}/>
       })}
     </div>
   );
