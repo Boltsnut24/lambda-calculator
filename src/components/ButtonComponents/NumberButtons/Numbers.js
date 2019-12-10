@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import numbers from "../../../data.js";
+import {numbers} from "../../../data.js";
 import NumberButton from "./NumberButton.js";
 
 const Numbers = () => {
@@ -10,9 +10,11 @@ const Numbers = () => {
     <div>
       {
         numberState.map((number, index) => {
-          <NumberButton numberProp = {number} key = {index}/>
+          return <NumberButton numberProp = {number} key = {index}/>
         })
       }
     </div>
   );
 };
+
+export default Numbers;

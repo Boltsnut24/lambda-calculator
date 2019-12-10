@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import specials from "../../../data.js";
+import {specials} from "../../../data.js";
 import SpecialButton from "./SpecialButton.js";
 //import any components needed
 
@@ -11,8 +11,10 @@ const Specials = () => {
   return (
     <div>
       {specialState.map((symbol, index) => {
-        <SpecialButton specialProp = {symbol} key = {index}/>
+        return <SpecialButton specialProp = {symbol} key = {index}/>
       })}
     </div>
   );
 };
+
+export default Specials;
