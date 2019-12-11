@@ -4,7 +4,9 @@ import "../../../App.css";
 const OperatorButton = (props) => {
   return (
     <>
-      <button>{props.operatorProp.char}</button>
+      <button className="operator" onClick={() => props.appendOperator(props.operatorProp.value)}>
+        {props.operatorProp.char}
+      </button>
     </>
   );
 };

@@ -4,7 +4,7 @@ import "../../../App.css";
 const NumberButton = (props) => {
   return (
     <>
-      <button className="number">{props.numberProp}</button>
+      <button className="number" onClick={() => props.appendNumber(props.numberProp)}>{props.numberProp}</button>
     </>
   );
 };

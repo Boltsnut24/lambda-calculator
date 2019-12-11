@@ -1,32 +1,51 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Number from "./components/ButtonComponents/NumberButtons/Numbers.js";
 import Operator from "./components/ButtonComponents/OperatorButtons/Operators.js";
 import Special from "./components/ButtonComponents/SpecialButtons/Specials.js";
 import Display from "./components/DisplayComponents/Display.js";
 import Logo from "./components/DisplayComponents/Logo.js";
-import Spec from "jest-jasmine2/build/jasmine/Spec";
 
 function App() {
-  // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
-  // Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
-  // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
-  // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
-  // Don't forget to pass the functions (and any additional data needed) to the components as props
-  const [displayState, setDisplayState] = useState("0");
 
+  const [displayState, setDisplayState] = useState("");
+
+  const appendNumber = (num) => {
+    setDisplayState(`${displayState}${num}`);
+  }
+
+  const appendOperator = (operator) => {
+    operator === "=" ? setDisplayState(eval(displayState)) :
+                       setDisplayState(`${displayState} ${operator} `)
+  }
+
+  const appendSpecial = (special) => {
+    if (special === "C") {
+      setDisplayState(``);
+    } else if (special === "+/-") {
+      if (displayState.split("")[0] === '-') {
+        setDisplayState(displayState.substr(1))
+      } else {
+        setDisplayState(`-${displayState}`)
+      }
+    } else {
+      setDisplayState(`${displayState} ${special} `)
+    }
+  }
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
-        <Display displayProp = {displayState}/>
-        <div className="operator-numbers">
-          <Special />
-          <Number />
+        <Display displayProp={displayState} />
+        <div className="button-container">
+          <div className="operator-numbers">
+            <Special appendSpecial={appendSpecial} />
+            <Number appendNumber={appendNumber} />
+          </div>
+          <Operator appendOperator={appendOperator} />
         </div>
-  <Operator />
-      
+
       </div>
     </div>
   );

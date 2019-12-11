@@ -1,15 +1,15 @@
-import React, {useState} from "react";
-import {operators} from "../../../data.js";
+import React, { useState } from "react";
+import { operators } from "../../../data.js";
 import OperatorButton from "./OperatorButton.js";
 
-const Operators = () => {
+const Operators = (props) => {
 
   const [operatorState, setOperatorState] = useState(operators)
   return (
-    <div>
+    <div className="operator-buttons">
       {
         operatorState.map((operator, index) => {
-          return <OperatorButton operatorProp = {operator} key = {index}/>
+          return <OperatorButton operatorProp={operator} key={index} appendOperator={props.appendOperator} />
         })
       }
     </div>
